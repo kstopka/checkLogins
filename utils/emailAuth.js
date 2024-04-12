@@ -31,7 +31,7 @@ function checkLogin(lp, email, password, server, protocol) {
         console.log("Login successful using POP3!", lp);
         // setResult({ lp, email, result: true });
       } else {
-        console.log("Login error using POP3:", rawdata);
+        console.log("Login error using POP3:", rawdata, "lp: ", lp);
         setResult({ lp, email, result: false });
       }
       client.quit();
@@ -56,7 +56,7 @@ function checkLogin(lp, email, password, server, protocol) {
     });
 
     imap.once("error", (err) => {
-      console.log("Login error using IMAP:", err);
+      console.log("Login error using IMAP:", err, "lp: ", lp);
       setResult({ lp, email, result: false });
     });
 

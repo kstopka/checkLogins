@@ -1,7 +1,7 @@
 const XLSX = require("xlsx");
 
 const setResult = (newData) => {
-  const workbook = XLSX.readFile("result.xlsx");
+  const workbook = XLSX.readFile("data/result.xlsx");
   const sheetName = workbook.SheetNames[0];
   const worksheet = workbook.Sheets[sheetName];
   const data = [];
@@ -12,7 +12,7 @@ const setResult = (newData) => {
 
   XLSX.utils.sheet_add_aoa(worksheet, data, { origin: -1 });
 
-  XLSX.writeFile(workbook, "result.xlsx");
+  XLSX.writeFile(workbook, "data/result.xlsx");
 };
 
 module.exports = { setResult };
